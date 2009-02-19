@@ -19,6 +19,7 @@ options.verbose = false
 options.revert = false
 options.user = {}
 options.user['name'] = 'backuppc'
+options.user['password'] = 'somereallycrazyhardpassword'
 options.admin_id = 80
 options.backup_check = '/usr/local/bin/backup_check.rb'
 options.ip = ''
@@ -167,7 +168,7 @@ def create_user(user,os_version)
     prefix = "/usr/bin/dscl . -create /Users/"
     if not system("#{prefix}#{user['name']}") or 
        not system("#{prefix}#{user['name']} UniqueID #{user['uid']}") or
-       not system("/usr/bin/dscl . -passwd /Users/#{user['name']} 'particle25!oppress'") or
+       not system("/usr/bin/dscl . -passwd /Users/#{user['name']} '#{user['password']}'") or
        not system("#{prefix}#{user['name']} PrimaryGroupID 20") or
        not system("#{prefix}#{user['name']} UserShell /bin/bash") or
        not system("#{prefix}#{user['name']} RealName #{user['name']}")
