@@ -1,0 +1,14 @@
+backuppc_config.rb:
+  The following ruby modules are required:
+    - fileutils
+    - optparse
+    - ostruct
+    - pp
+
+  $ sudo gem install fileutils optparse ostruct pp
+
+net.sourceforge.backuppc.plist:
+  This is a launchdaemon script which starts backuppc at boot and keeps it
+  running if the process dies for whatever reason.
+
+  $ sudo cp net.sourceforge.backuppc.plist /Library/LaunchDaemons/
